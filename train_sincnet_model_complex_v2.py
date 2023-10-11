@@ -63,7 +63,7 @@ input_data = tf.keras.Input(shape=training_x.shape[1:])
 
 def complex_conv(input, conv_filter, kernel_size, max_pool, dropout):
     x = cnn.ComplexConv1D(conv_filter, kernel_size, padding = "same")(input)
-    x = cnn.ComplexConv1D(conv_filter, kernel_size, padding = "same")(x)
+    # x = cnn.ComplexConv1D(conv_filter, kernel_size, padding = "same")(x)
     x = pool.ComplexMaxPooling1D(max_pool,max_pool)(x)
     x = Cactivation.complex_bn(x)
     x = Cactivation.CReLU(x)
