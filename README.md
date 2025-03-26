@@ -101,7 +101,7 @@ If you find this work useful, please cite our paper:
 *Table: Performance of various models on ASL recognition using radar signals.*
 
 
-![accuracy](images/varying class.jpg)
+![accuracy](images/varying_class.jpg)
 
 *Figure 7: Testing accuracy for all networks with respect to varying number of classes.*
 
