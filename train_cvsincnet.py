@@ -8,6 +8,7 @@ from complex_valued_layers import complexdense as cvdense
 from complex_valued_layers import complexactivation as Cactivation
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
+from tensorflow.keras.utils import plot_model
 import seaborn as sns
 import h5py
 
@@ -80,7 +81,8 @@ output_layer = Cactivation.complex_softmax(dense2)
 
 model = tf.keras.Model(inputs=input_data, outputs=output_layer)
 print(model.summary())
-
+with open('model_summary.txt', 'w') as f:
+    model.summary(print_fn=lambda x: f.write(x + '\n'))
 model.compile(optimizer=tf.keras.optimizers.Adam(),
               loss=tf.keras.losses.SparseCategoricalCrossentropy(),
               metrics=["accuracy"])

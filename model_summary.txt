@@ -1,0 +1,328 @@
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 13050, 2)]   0           []                               
+                                                                                                  
+ sinc_net_layer1d_1 (SincNetLay  (None, 12800, 512)  512         ['input_2[0][0]']                
+ er1D)                                                                                            
+                                                                                                  
+ complex_max_pooling1d_7 (Compl  (None, 3200, 512)   0           ['sinc_net_layer1d_1[0][0]']     
+ exMaxPooling1D)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_52 (S  (None, 3200, 256)   0           ['complex_max_pooling1d_7[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_53 (S  (None, 3200, 256)   0           ['complex_max_pooling1d_7[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ layer_normalization_2 (LayerNo  (None, 3200, 256)   512         ['tf.__operators__.getitem_52[0][
+ rmalization)                                                    0]']                             
+                                                                                                  
+ layer_normalization_3 (LayerNo  (None, 3200, 256)   512         ['tf.__operators__.getitem_53[0][
+ rmalization)                                                    0]']                             
+                                                                                                  
+ tf.concat_16 (TFOpLambda)      (None, 3200, 512)    0           ['layer_normalization_2[0][0]',  
+                                                                  'layer_normalization_3[0][0]']  
+                                                                                                  
+ tf.__operators__.getitem_55 (S  (None, 3200, 256)   0           ['tf.concat_16[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_56 (S  (None, 3200, 256)   0           ['tf.concat_16[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_16 (ReLU)                (None, 3200, 256)    0           ['tf.__operators__.getitem_55[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_17 (ReLU)                (None, 3200, 256)    0           ['tf.__operators__.getitem_56[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_17 (TFOpLambda)      (None, 3200, 512)    0           ['re_lu_16[0][0]',               
+                                                                  're_lu_17[0][0]']               
+                                                                                                  
+ dropout_8 (Dropout)            (None, 3200, 512)    0           ['tf.concat_17[0][0]']           
+                                                                                                  
+ complex_conv1d_6 (ComplexConv1  (None, 3196, 128)   163968      ['dropout_8[0][0]']              
+ D)                                                                                               
+                                                                                                  
+ complex_max_pooling1d_8 (Compl  (None, 1065, 128)   0           ['complex_conv1d_6[0][0]']       
+ exMaxPooling1D)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_58 (S  (None, 1065, 64)    0           ['complex_max_pooling1d_8[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_59 (S  (None, 1065, 64)    0           ['complex_max_pooling1d_8[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 1065, 64)    256         ['tf.__operators__.getitem_58[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_13 (BatchN  (None, 1065, 64)    256         ['tf.__operators__.getitem_59[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_18 (TFOpLambda)      (None, 1065, 128)    0           ['batch_normalization_12[0][0]', 
+                                                                  'batch_normalization_13[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_61 (S  (None, 1065, 64)    0           ['tf.concat_18[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_62 (S  (None, 1065, 64)    0           ['tf.concat_18[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_18 (ReLU)                (None, 1065, 64)     0           ['tf.__operators__.getitem_61[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_19 (ReLU)                (None, 1065, 64)     0           ['tf.__operators__.getitem_62[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_19 (TFOpLambda)      (None, 1065, 128)    0           ['re_lu_18[0][0]',               
+                                                                  're_lu_19[0][0]']               
+                                                                                                  
+ dropout_9 (Dropout)            (None, 1065, 128)    0           ['tf.concat_19[0][0]']           
+                                                                                                  
+ complex_conv1d_7 (ComplexConv1  (None, 1061, 128)   41088       ['dropout_9[0][0]']              
+ D)                                                                                               
+                                                                                                  
+ complex_max_pooling1d_9 (Compl  (None, 353, 128)    0           ['complex_conv1d_7[0][0]']       
+ exMaxPooling1D)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_64 (S  (None, 353, 64)     0           ['complex_max_pooling1d_9[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_65 (S  (None, 353, 64)     0           ['complex_max_pooling1d_9[0][0]']
+ licingOpLambda)                                                                                  
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 353, 64)     256         ['tf.__operators__.getitem_64[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_15 (BatchN  (None, 353, 64)     256         ['tf.__operators__.getitem_65[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_20 (TFOpLambda)      (None, 353, 128)     0           ['batch_normalization_14[0][0]', 
+                                                                  'batch_normalization_15[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_67 (S  (None, 353, 64)     0           ['tf.concat_20[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_68 (S  (None, 353, 64)     0           ['tf.concat_20[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_20 (ReLU)                (None, 353, 64)      0           ['tf.__operators__.getitem_67[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_21 (ReLU)                (None, 353, 64)      0           ['tf.__operators__.getitem_68[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_21 (TFOpLambda)      (None, 353, 128)     0           ['re_lu_20[0][0]',               
+                                                                  're_lu_21[0][0]']               
+                                                                                                  
+ dropout_10 (Dropout)           (None, 353, 128)     0           ['tf.concat_21[0][0]']           
+                                                                                                  
+ complex_conv1d_8 (ComplexConv1  (None, 349, 128)    41088       ['dropout_10[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ complex_max_pooling1d_10 (Comp  (None, 116, 128)    0           ['complex_conv1d_8[0][0]']       
+ lexMaxPooling1D)                                                                                 
+                                                                                                  
+ tf.__operators__.getitem_70 (S  (None, 116, 64)     0           ['complex_max_pooling1d_10[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ tf.__operators__.getitem_71 (S  (None, 116, 64)     0           ['complex_max_pooling1d_10[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ batch_normalization_16 (BatchN  (None, 116, 64)     256         ['tf.__operators__.getitem_70[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_17 (BatchN  (None, 116, 64)     256         ['tf.__operators__.getitem_71[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_22 (TFOpLambda)      (None, 116, 128)     0           ['batch_normalization_16[0][0]', 
+                                                                  'batch_normalization_17[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_73 (S  (None, 116, 64)     0           ['tf.concat_22[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_74 (S  (None, 116, 64)     0           ['tf.concat_22[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_22 (ReLU)                (None, 116, 64)      0           ['tf.__operators__.getitem_73[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_23 (ReLU)                (None, 116, 64)      0           ['tf.__operators__.getitem_74[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_23 (TFOpLambda)      (None, 116, 128)     0           ['re_lu_22[0][0]',               
+                                                                  're_lu_23[0][0]']               
+                                                                                                  
+ dropout_11 (Dropout)           (None, 116, 128)     0           ['tf.concat_23[0][0]']           
+                                                                                                  
+ complex_conv1d_9 (ComplexConv1  (None, 112, 128)    41088       ['dropout_11[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ complex_max_pooling1d_11 (Comp  (None, 37, 128)     0           ['complex_conv1d_9[0][0]']       
+ lexMaxPooling1D)                                                                                 
+                                                                                                  
+ tf.__operators__.getitem_76 (S  (None, 37, 64)      0           ['complex_max_pooling1d_11[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ tf.__operators__.getitem_77 (S  (None, 37, 64)      0           ['complex_max_pooling1d_11[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ batch_normalization_18 (BatchN  (None, 37, 64)      256         ['tf.__operators__.getitem_76[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_19 (BatchN  (None, 37, 64)      256         ['tf.__operators__.getitem_77[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_24 (TFOpLambda)      (None, 37, 128)      0           ['batch_normalization_18[0][0]', 
+                                                                  'batch_normalization_19[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_79 (S  (None, 37, 64)      0           ['tf.concat_24[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_80 (S  (None, 37, 64)      0           ['tf.concat_24[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_24 (ReLU)                (None, 37, 64)       0           ['tf.__operators__.getitem_79[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_25 (ReLU)                (None, 37, 64)       0           ['tf.__operators__.getitem_80[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_25 (TFOpLambda)      (None, 37, 128)      0           ['re_lu_24[0][0]',               
+                                                                  're_lu_25[0][0]']               
+                                                                                                  
+ dropout_12 (Dropout)           (None, 37, 128)      0           ['tf.concat_25[0][0]']           
+                                                                                                  
+ complex_conv1d_10 (ComplexConv  (None, 33, 128)     41088       ['dropout_12[0][0]']             
+ 1D)                                                                                              
+                                                                                                  
+ complex_max_pooling1d_12 (Comp  (None, 11, 128)     0           ['complex_conv1d_10[0][0]']      
+ lexMaxPooling1D)                                                                                 
+                                                                                                  
+ tf.__operators__.getitem_82 (S  (None, 11, 64)      0           ['complex_max_pooling1d_12[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ tf.__operators__.getitem_83 (S  (None, 11, 64)      0           ['complex_max_pooling1d_12[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ batch_normalization_20 (BatchN  (None, 11, 64)      256         ['tf.__operators__.getitem_82[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_21 (BatchN  (None, 11, 64)      256         ['tf.__operators__.getitem_83[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_26 (TFOpLambda)      (None, 11, 128)      0           ['batch_normalization_20[0][0]', 
+                                                                  'batch_normalization_21[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_85 (S  (None, 11, 64)      0           ['tf.concat_26[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_86 (S  (None, 11, 64)      0           ['tf.concat_26[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_26 (ReLU)                (None, 11, 64)       0           ['tf.__operators__.getitem_85[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_27 (ReLU)                (None, 11, 64)       0           ['tf.__operators__.getitem_86[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_27 (TFOpLambda)      (None, 11, 128)      0           ['re_lu_26[0][0]',               
+                                                                  're_lu_27[0][0]']               
+                                                                                                  
+ dropout_13 (Dropout)           (None, 11, 128)      0           ['tf.concat_27[0][0]']           
+                                                                                                  
+ complex_conv1d_11 (ComplexConv  (None, 7, 128)      41088       ['dropout_13[0][0]']             
+ 1D)                                                                                              
+                                                                                                  
+ complex_max_pooling1d_13 (Comp  (None, 2, 128)      0           ['complex_conv1d_11[0][0]']      
+ lexMaxPooling1D)                                                                                 
+                                                                                                  
+ tf.__operators__.getitem_88 (S  (None, 2, 64)       0           ['complex_max_pooling1d_13[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ tf.__operators__.getitem_89 (S  (None, 2, 64)       0           ['complex_max_pooling1d_13[0][0]'
+ licingOpLambda)                                                 ]                                
+                                                                                                  
+ batch_normalization_22 (BatchN  (None, 2, 64)       256         ['tf.__operators__.getitem_88[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ batch_normalization_23 (BatchN  (None, 2, 64)       256         ['tf.__operators__.getitem_89[0][
+ ormalization)                                                   0]']                             
+                                                                                                  
+ tf.concat_28 (TFOpLambda)      (None, 2, 128)       0           ['batch_normalization_22[0][0]', 
+                                                                  'batch_normalization_23[0][0]'] 
+                                                                                                  
+ tf.__operators__.getitem_91 (S  (None, 2, 64)       0           ['tf.concat_28[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_92 (S  (None, 2, 64)       0           ['tf.concat_28[0][0]']           
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_28 (ReLU)                (None, 2, 64)        0           ['tf.__operators__.getitem_91[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_29 (ReLU)                (None, 2, 64)        0           ['tf.__operators__.getitem_92[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_29 (TFOpLambda)      (None, 2, 128)       0           ['re_lu_28[0][0]',               
+                                                                  're_lu_29[0][0]']               
+                                                                                                  
+ dropout_14 (Dropout)           (None, 2, 128)       0           ['tf.concat_29[0][0]']           
+                                                                                                  
+ tf.__operators__.getitem_94 (S  (None, 2, 64)       0           ['dropout_14[0][0]']             
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_95 (S  (None, 2, 64)       0           ['dropout_14[0][0]']             
+ licingOpLambda)                                                                                  
+                                                                                                  
+ flatten_2 (Flatten)            (None, 128)          0           ['tf.__operators__.getitem_94[0][
+                                                                 0]']                             
+                                                                                                  
+ flatten_3 (Flatten)            (None, 128)          0           ['tf.__operators__.getitem_95[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_30 (TFOpLambda)      (None, 256)          0           ['flatten_2[0][0]',              
+                                                                  'flatten_3[0][0]']              
+                                                                                                  
+ complex_dense_2 (ComplexDense)  (None, 512)         66048       ['tf.concat_30[0][0]']           
+                                                                                                  
+ dropout_15 (Dropout)           (None, 512)          0           ['complex_dense_2[0][0]']        
+                                                                                                  
+ tf.__operators__.getitem_97 (S  (None, 256)         0           ['dropout_15[0][0]']             
+ licingOpLambda)                                                                                  
+                                                                                                  
+ tf.__operators__.getitem_98 (S  (None, 256)         0           ['dropout_15[0][0]']             
+ licingOpLambda)                                                                                  
+                                                                                                  
+ re_lu_30 (ReLU)                (None, 256)          0           ['tf.__operators__.getitem_97[0][
+                                                                 0]']                             
+                                                                                                  
+ re_lu_31 (ReLU)                (None, 256)          0           ['tf.__operators__.getitem_98[0][
+                                                                 0]']                             
+                                                                                                  
+ tf.concat_31 (TFOpLambda)      (None, 512)          0           ['re_lu_30[0][0]',               
+                                                                  're_lu_31[0][0]']               
+                                                                                                  
+ complex_dense_3 (ComplexDense)  (None, 200)         51400       ['tf.concat_31[0][0]']           
+                                                                                                  
+ tf.__operators__.getitem_100 (  (None, 100)         0           ['complex_dense_3[0][0]']        
+ SlicingOpLambda)                                                                                 
+                                                                                                  
+ tf.__operators__.getitem_101 (  (None, 100)         0           ['complex_dense_3[0][0]']        
+ SlicingOpLambda)                                                                                 
+                                                                                                  
+ tf.dtypes.complex_1 (TFOpLambd  (None, 100)         0           ['tf.__operators__.getitem_100[0]
+ a)                                                              [0]',                            
+                                                                  'tf.__operators__.getitem_101[0]
+                                                                 [0]']                            
+                                                                                                  
+ tf.math.abs_1 (TFOpLambda)     (None, 100)          0           ['tf.dtypes.complex_1[0][0]']    
+                                                                                                  
+ softmax_1 (Softmax)            (None, 100)          0           ['tf.math.abs_1[0][0]']          
+                                                                                                  
+==================================================================================================
+Total params: 491,464
+Trainable params: 489,928
+Non-trainable params: 1,536
+__________________________________________________________________________________________________
