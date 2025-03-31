@@ -22,7 +22,14 @@ We propose a complex-valued neural network for real-time human motion recognitio
    ```bash
    conda install tensorflow=2.10
    ```
-
+4. **Check the numpy version**, if numpy version is not 1.24.2, install it explicitly:
+   ```bash
+   pip install numpy==1.24.2
+   ```
+   or
+   ```bash
+   conda install numpy==1.24.2
+   ```
 ---
 
 ## Usage
