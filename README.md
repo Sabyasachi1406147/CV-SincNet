@@ -71,7 +71,7 @@ If you find this work useful, please cite our paper:
 
 *Figure 1: Flow diagram of the CV-SincNet architecture.*
 
-![CV-Sinc Block](images/sinc_block.jpg)
+![CV-Sinc Block](images/sinc-block.jpg)
 
 *Figure 2: The CV-sinc block used as the intitial layer of the architecture.*
 
