@@ -69,11 +69,11 @@ If you find this work useful, please cite our paper:
 
 ![Model Architecture](images/block_dia.jpg)
 
-*Figure 1: The CV-sinc block used as the intitial layer of the architecture.*
+*Figure 1: Flow diagram of the CV-SincNet architecture.*
 
 ![CV-Sinc Block](images/sinc_block.jpg)
 
-*Figure 2: Flow diagram of the CV-SincNet architecture.*
+*Figure 2: The CV-sinc block used as the intitial layer of the architecture.*
 
 ![Complex Convolution](images/conv.jpg)
 
